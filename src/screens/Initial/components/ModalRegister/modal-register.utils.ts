@@ -42,3 +42,6 @@ export const secureFormFields: FormFields[] = [
     placeholder: "Confirmar Senha",
   },
 ];
+
+export const SUCCESS_MESSAGE = "Cadastro realizado com sucesso!";
+export const ERROR_MESSAGE = "Erro ao realizar cadastro!";
