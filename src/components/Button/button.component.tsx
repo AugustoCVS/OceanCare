@@ -29,7 +29,11 @@ export const Button: React.FC<ButtonProps> = ({
         children
       ) : (
         <Text className="text-black text-lg font-bold">
-          {disabled ? <Spinner color="#173042FC" size="sm" /> : text}
+          {disabled ? (
+            <Spinner color="#173042FC" size="sm" className="pt-1" />
+          ) : (
+            text
+          )}
         </Text>
       )}
     </TouchableOpacity>
