@@ -17,12 +17,12 @@ export const GenericModalHeader: React.FC<GenericModalHeaderProps> = ({
     >
       {title && (
         <View className="flex items-center justify-center text-center text-lg">
-          <Text>{title}</Text>
+          <Text className="text-3xl font-bold text-blue-100">{title}</Text>
         </View>
       )}
 
       <Pressable onPress={onClose} className="absolute right-4 top-4">
-        <AntDesign name="close" size={24} color="black" />
+        <AntDesign name="close" size={26} color="#173042FC" />
       </Pressable>
     </Center>
   );
