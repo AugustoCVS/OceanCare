@@ -28,7 +28,7 @@ export const Input: React.FC<T.InputProps> = ({
         _focus={{
           bg: "gray.200",
           borderWidth: 2,
-          borderColor: "#749E50",
+          borderColor: "#DFE9F5",
         }}
         _invalid={{
           borderWidth: 2,
