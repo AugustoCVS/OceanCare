@@ -30,7 +30,7 @@ export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
     await AsyncStorage.setItem("@refreshToken", refreshToken);
   };
 
-  const handleSaveUserInfo = async ({ token }: { token: string }) => {
+  const handleSaveUserInfo = ({ token }: { token: string }): void => {
     const userInfo = jwtDecode<UserProps>(token);
     dispatch(setUser(userInfo));
   };
