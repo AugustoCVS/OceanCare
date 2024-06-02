@@ -4,3 +4,13 @@ export type RegisterRequestProps = {
   password: string;
   confirm_password: string;
 };
+
+export type LoginRequestProps = {
+  email: string;
+  password: string;
+};
+
+export type LoginResponseProps = {
+  token: string;
+  refreshToken: string;
+}
