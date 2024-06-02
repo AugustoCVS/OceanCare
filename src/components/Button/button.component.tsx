@@ -1,25 +1,27 @@
 import React from "react";
-import { TouchableOpacity, TouchableOpacityProps } from "react-native";
-
-type ButtonProps = TouchableOpacityProps & {
-  children?: React.ReactNode;
-  className?: string;
-  onPress?: () => void;
-};
+import { TouchableOpacity } from "react-native";
+import { ButtonProps } from "./button.types";
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   className,
+  isFirstStyle,
   ...rest
-}) => (
-  <TouchableOpacity
-    {...rest}
-    className={
-      className
-        ? className
-        : "bg-blue-200 w-72 h-16 rounded-lg flex items-center justify-center text-center"
-    }
-  >
-    {children}
-  </TouchableOpacity>
-);
+}) => {
+  const background = isFirstStyle
+    ? "bg-blue-300"
+    : "bg-white border border-blue-300";
+
+  return (
+    <TouchableOpacity
+      {...rest}
+      className={
+        className
+          ? className
+          : `${background} w-72 h-16 rounded-lg flex items-center justify-center text-center`
+      }
+    >
+      {children}
+    </TouchableOpacity>
+  );
+};
