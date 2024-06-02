@@ -1,10 +1,10 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getToken } from "@/utils/auth";
 import { InternalAxiosRequestConfig } from "axios";
 
 export const requestInterceptor = async (
   config: InternalAxiosRequestConfig
 ) => {
-  const token = await AsyncStorage.getItem("@token");
+  const token = await getToken();
 
   if (token) {
     config.headers["Authorization"] = `Bearer ${token}`;

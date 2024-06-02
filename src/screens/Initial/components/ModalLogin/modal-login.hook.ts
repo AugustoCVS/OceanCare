@@ -16,6 +16,7 @@ import { setUser } from "@/redux/slices/User/user.slice";
 import { setToken } from "@/redux/slices/Token/token.slice";
 import { StackTypes } from "@/routes/stack.routes";
 import { useNavigation } from "@react-navigation/native";
+import { saveTokensOnStorage } from "@/utils/auth";
 
 export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
   const dispatch = useDispatch();
@@ -24,14 +25,6 @@ export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
 
   const handleCloseModal = (): void => {
     modalRef.current?.close();
-  };
-
-  const handleSaveTokens = async ({
-    refreshToken,
-    token,
-  }: LoginResponseProps): Promise<void> => {
-    await AsyncStorage.setItem("@token", token);
-    await AsyncStorage.setItem("@refreshToken", refreshToken);
   };
 
   const handleSaveUserInfo = ({ token }: { token: string }): void => {
@@ -50,7 +43,7 @@ export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
   const { isPending, mutate } = useMutation({
     mutationFn: (data: LoginRequestProps) => AuthService.login({ data }),
     onSuccess: async (data: LoginResponseProps) => {
-      await handleSaveTokens(data);
+      await saveTokensOnStorage(data);
       handleSaveUserInfo({
         token: data.token,
       });
