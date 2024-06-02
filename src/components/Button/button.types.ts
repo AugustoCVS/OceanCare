@@ -5,4 +5,6 @@ export type ButtonProps = TouchableOpacityProps & {
   className?: string;
   onPress?: () => void;
   isFirstStyle?: boolean;
+  disabled?: boolean;
+  text?: string;
 };

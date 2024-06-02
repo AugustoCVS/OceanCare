@@ -16,13 +16,9 @@ export const Initial: React.FC = () => {
         </View>
 
         <View className="flex flex-col gap-4">
-          <Button isFirstStyle>
-            <Text className="text-black text-lg font-bold">Login</Text>
-          </Button>
+          <Button isFirstStyle text="Login" />
 
-          <Button onPress={actions.handleOpenModalRegister}>
-            <Text className="text-black text-lg font-bold">Registrar</Text>
-          </Button>
+          <Button onPress={actions.handleOpenModalRegister} text="Registrar" />
         </View>
       </View>
 
