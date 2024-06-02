@@ -4,8 +4,9 @@ import Logo from "@/assets/logo.svg";
 import { Title } from "./components/Title/title.component";
 import { useHeader } from "./header.hook";
 import { Button } from "@/components/Button/button.component";
+import { HeaderProps } from "./header.types";
 
-export const Header: React.FC = () => {
+export const Header: React.FC<HeaderProps> = ({ handleOpenModal }) => {
   const { states } = useHeader();
 
   return (
@@ -15,6 +16,7 @@ export const Header: React.FC = () => {
       <Button
         text="Reportar"
         className="bg-blue-300 w-24 h-12 rounded-lg flex items-center justify-center text-center"
+        onPress={handleOpenModal}
       />
     </View>
   );
