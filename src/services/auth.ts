@@ -1,5 +1,9 @@
 import { apiAuth } from "./api-auth";
-import { LoginRequestProps, LoginResponseProps, RegisterRequestProps } from "./interfaces/auth";
+import {
+  LoginRequestProps,
+  LoginResponseProps,
+  RegisterRequestProps,
+} from "./interfaces/auth";
 
 export const AuthService = {
   register: async ({ data }: { data: RegisterRequestProps }) => {
@@ -10,6 +14,14 @@ export const AuthService = {
 
   login: async ({ data }: { data: LoginRequestProps }) => {
     const res = await apiAuth.post<LoginResponseProps>("/users/login", data);
+
+    return res.data;
+  },
+
+  refreshToken: async ({ refreshToken }: { refreshToken: string }) => {
+    const res = await apiAuth.post<LoginResponseProps>("/users/refreshToken", {
+      refreshToken,
+    });
 
     return res.data;
   },
