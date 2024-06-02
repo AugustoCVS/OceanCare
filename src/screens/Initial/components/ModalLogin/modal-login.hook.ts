@@ -13,9 +13,13 @@ import { jwtDecode } from "jwt-decode";
 import { UserProps } from "@/services/interfaces/user";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/User/user.slice";
+import { setToken } from "@/redux/slices/Token/token.slice";
+import { StackTypes } from "@/routes/stack.routes";
+import { useNavigation } from "@react-navigation/native";
 
 export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
   const dispatch = useDispatch();
+  const navigation = useNavigation<StackTypes>();
   const { showToast } = useMessage();
 
   const handleCloseModal = (): void => {
@@ -32,7 +36,15 @@ export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
 
   const handleSaveUserInfo = ({ token }: { token: string }): void => {
     const userInfo = jwtDecode<UserProps>(token);
+    dispatch(setToken({ token }));
     dispatch(setUser(userInfo));
+  };
+
+  const navigateToHome = (): void => {
+    navigation.navigate("TabDashboard");
+    showToast({
+      title: SUCCESS_MESSAGE,
+    });
   };
 
   const { isPending, mutate } = useMutation({
@@ -42,10 +54,7 @@ export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
       handleSaveUserInfo({
         token: data.token,
       });
-      handleCloseModal();
-      showToast({
-        title: SUCCESS_MESSAGE,
-      });
+      navigateToHome();
     },
     onError: () => {
       showToast({
