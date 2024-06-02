@@ -2,12 +2,20 @@ import { useMutation } from "@tanstack/react-query";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { ModalLoginProps } from "./modal-login.types";
-import { LoginRequestProps, LoginResponseProps } from "@/services/interfaces/auth";
+import {
+  LoginRequestProps,
+  LoginResponseProps,
+} from "@/services/interfaces/auth";
 import { AuthService } from "@/services/auth";
 import { useMessage } from "@/utils/message";
 import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "./modal-login.utils";
+import { jwtDecode } from "jwt-decode";
+import { UserProps } from "@/services/interfaces/user";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/redux/slices/User/user.slice";
 
 export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
+  const dispatch = useDispatch();
   const { showToast } = useMessage();
 
   const handleCloseModal = (): void => {
@@ -22,11 +30,18 @@ export const useModalLogin = ({ modalRef }: ModalLoginProps) => {
     await AsyncStorage.setItem("@refreshToken", refreshToken);
   };
 
+  const handleSaveUserInfo = async ({ token }: { token: string }) => {
+    const userInfo = jwtDecode<UserProps>(token);
+    dispatch(setUser(userInfo));
+  };
+
   const { isPending, mutate } = useMutation({
     mutationFn: (data: LoginRequestProps) => AuthService.login({ data }),
     onSuccess: async (data: LoginResponseProps) => {
-      console.log(data);
       await handleSaveTokens(data);
+      handleSaveUserInfo({
+        token: data.token,
+      });
       handleCloseModal();
       showToast({
         title: SUCCESS_MESSAGE,
