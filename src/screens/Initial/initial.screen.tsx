@@ -4,6 +4,7 @@ import { Button } from "@/components/Button/button.component";
 import Logo from "src/assets/logo-initial.svg";
 import { useInitial } from "./initial.hook";
 import { ModalRegister } from "./components/ModalRegister/modal-register.component";
+import { ModalLogin } from "./components/ModalLogin/modal-login.component";
 
 export const Initial: React.FC = () => {
   const { actions, refs } = useInitial();
@@ -16,13 +17,18 @@ export const Initial: React.FC = () => {
         </View>
 
         <View className="flex flex-col gap-4">
-          <Button isFirstStyle text="Login" />
+          <Button
+            isFirstStyle
+            onPress={actions.handleOpenModalLogin}
+            text="Login"
+          />
 
           <Button onPress={actions.handleOpenModalRegister} text="Registrar" />
         </View>
       </View>
 
       <ModalRegister modalRef={refs.modalRegisterRef} />
+      <ModalLogin modalRef={refs.modalLoginRef} />
     </>
   );
 };
