@@ -30,10 +30,9 @@ export const formFields: FormFields[] = [
     name: "email",
     placeholder: "E-mail",
   },
-  {
-    name: "cnpj",
-    placeholder: "CNPJ",
-  },
+];
+
+export const secureFormFields: FormFields[] = [
   {
     name: "password",
     placeholder: "Senha",
