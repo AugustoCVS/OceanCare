@@ -1,5 +1,5 @@
 export type UserProps = {
-  id: string;
+  id: number;
   name: string;
   email: string;
   reportedTrash: number;
