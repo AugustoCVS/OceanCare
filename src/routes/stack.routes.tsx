@@ -9,8 +9,8 @@ import TabRoutes from "./tab.routes";
 import { Initial } from "../screens/Initial/initial.screen";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { setToken } from "@/redux/slices/Token/token.slice";
+import { getToken } from "@/utils/auth";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +26,7 @@ export default function StackComponent() {
   const token = useSelector((state: RootState) => state.token.token);
 
   const handleGetUserTokenFromStorage = async () => {
-    const res = await AsyncStorage.getItem("@token");
+    const res = await getToken();
     dispatch(setToken({ token: res || "" }));
   };
 

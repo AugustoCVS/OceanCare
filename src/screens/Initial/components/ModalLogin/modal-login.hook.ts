@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { ModalLoginProps } from "./modal-login.types";
 import {
