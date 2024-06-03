@@ -40,7 +40,7 @@ export const ModalRegister: React.FC<ModalRegisterProps> = ({ modalRef }) => {
         {formFields.map((field) => {
           return (
             <Controller
-              key={field.name}
+              key={field.id}
               control={control}
               name={field.name as keyof useRegisterProps}
               render={({ field: { onChange } }) => (
@@ -58,7 +58,7 @@ export const ModalRegister: React.FC<ModalRegisterProps> = ({ modalRef }) => {
         {secureFormFields.map((field) => {
           return (
             <Controller
-              key={field.name}
+              key={field.id}
               control={control}
               name={field.name as keyof useRegisterProps}
               render={({ field: { onChange } }) => (

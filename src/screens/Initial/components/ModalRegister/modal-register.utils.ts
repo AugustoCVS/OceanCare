@@ -23,10 +23,12 @@ export const registerSchema = yup.object().shape({
 
 export const formFields: FormFields[] = [
   {
+    id: 0,
     name: "name",
     placeholder: "Nome",
   },
   {
+    id: 1,
     name: "email",
     placeholder: "E-mail",
   },
@@ -34,10 +36,12 @@ export const formFields: FormFields[] = [
 
 export const secureFormFields: FormFields[] = [
   {
+    id: 0,
     name: "password",
     placeholder: "Senha",
   },
   {
+    id: 1,
     name: "confirm_password",
     placeholder: "Confirmar Senha",
   },

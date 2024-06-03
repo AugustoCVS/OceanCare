@@ -1,16 +1,17 @@
 import { RefObject } from "react";
-import {Modalize} from 'react-native-modalize';
-import * as yup from 'yup';
+import { Modalize } from "react-native-modalize";
+import * as yup from "yup";
 
 import { registerSchema } from "./modal-register.utils";
 
 export type ModalRegisterProps = {
-    modalRef: RefObject<Modalize>;
-}
+  modalRef: RefObject<Modalize>;
+};
 
 export type FormFields = {
-    name: string;
-    placeholder: string;
-}
+  id: number;
+  name: string;
+  placeholder: string;
+};
 
-export type useRegisterProps = yup.InferType<typeof registerSchema>
+export type useRegisterProps = yup.InferType<typeof registerSchema>;
