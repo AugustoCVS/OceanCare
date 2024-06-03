@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-type TokenProps = {
+export type TokenProps = {
   token: string;
 };
 
