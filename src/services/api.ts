@@ -4,7 +4,7 @@ import { requestInterceptor } from "./interceptors/request-interceptor";
 import { AuthService } from "./auth";
 import { getRefreshToken, saveTokensOnStorage } from "@/utils/auth";
 
-const BASE_URL = "http://192.168.15.8:8080";
+const BASE_URL = "http://192.168.0.6:8080";
 
 const api = axios.create({
   baseURL: BASE_URL,

@@ -2,7 +2,7 @@ import axios from "axios";
 import { responseInterceptor } from "./interceptors/response-interceptor";
 import { errorInterceptor } from "./interceptors/error-interceptor";
 
-const BASE_URL = "http://192.168.15.8:8080";
+const BASE_URL = "http://192.168.0.6:8080";
 
 const apiAuth = axios.create({
   baseURL: BASE_URL,
