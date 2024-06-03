@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import StackComponent from "./src/routes/stack.routes";
 import { store } from "@/redux/store";
+import { UserProvider } from "@/providers/user.provider";
 
 const queryClient = new QueryClient();
 
@@ -19,8 +20,10 @@ function App(): JSX.Element {
         <Host>
           <Provider store={store}>
             <QueryClientProvider client={queryClient}>
-              <StatusBar style="dark" />
-              <StackComponent />
+              <UserProvider>
+                <StatusBar style="dark" />
+                <StackComponent />
+              </UserProvider>
             </QueryClientProvider>
           </Provider>
         </Host>
