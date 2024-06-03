@@ -25,7 +25,7 @@ api.interceptors.response.use(
     const prevReq = error.config;
     const refreshToken = await getRefreshToken();
 
-    if (error.response?.status === 401 && !prevReq._retry) {
+    if (error.response?.status === 403 && !prevReq._retry) {
       prevReq._retry = true;
 
       await AuthService.refreshToken({
