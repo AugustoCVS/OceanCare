@@ -9,11 +9,11 @@ export const Content: React.FC<ContentProps> = ({
   const infos = [
     {
       id: 0,
-      content: description,
+      content: `${description}`,
     },
     {
       id: 1,
-      content: location,
+      content: `Local: ${location}`,
     },
     {
       id: 2,
