@@ -8,6 +8,7 @@ import { Achievements } from "./components/Achievements/achievements.component";
 import { CTA } from "@/components/CTA/cta.component";
 import { CTAList } from "./home.constants";
 import { View } from "react-native";
+import { Events } from "./components/Events/events.component";
 
 export const Home: React.FC = () => {
   const { refs, actions } = useHome();
@@ -48,6 +49,17 @@ export const Home: React.FC = () => {
               title={cta.title}
             />
           ))}
+        </View>
+
+        <View>
+          <Events
+            name="Evento 1"
+            description="Descrição do evento 1"
+            location="Local do evento 1"
+            startDate="01/01/2021"
+            endDate="02/01/2021"
+            participants={10}
+          />
         </View>
       </ScrollView>
     </>
