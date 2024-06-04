@@ -2,7 +2,7 @@ import { UserProps } from 'src/services/interfaces/user';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: UserProps = {
-  id: "",
+  id: 0,
   name: "",
   email: "",
   reportedTrash: 0,
