@@ -1,5 +1,5 @@
 import { Octicons, FontAwesome6 } from "@expo/vector-icons";
-import { FlatList, View, ScrollView, Text } from "react-native";
+import { FlatList, View, ScrollView, Text, RefreshControl } from "react-native";
 
 import { Header } from "./components/Header/header.component";
 import { ModalReportTrash } from "@/components/Modais/ModalReportTrash/modal-report-trash.component";
@@ -9,6 +9,7 @@ import { CTA } from "@/components/CTA/cta.component";
 import { CTAList } from "./home.constants";
 
 import { Events } from "./components/Events/events.component";
+import { ListEmpty } from "@/components/ListEmtpy/list-empty.component";
 
 export const Home: React.FC = () => {
   const { refs, states, actions } = useHome();
@@ -34,6 +35,13 @@ export const Home: React.FC = () => {
         contentContainerStyle={{
           padding: 20,
         }}
+        refreshControl={
+          <RefreshControl
+            refreshing={states.isLoading}
+            onRefresh={actions.handleRefetchEvents}
+            tintColor={"#173042FC"}
+          />
+        }
       >
         <Achievements />
 
@@ -74,6 +82,9 @@ export const Home: React.FC = () => {
                 participants={item.users.length}
               />
             )}
+            ListEmptyComponent={
+              <ListEmpty loading={states.isLoading} isEventEmpty isSecondary />
+            }
           />
         </View>
       </ScrollView>
