@@ -30,11 +30,10 @@ api.interceptors.response.use(
 
       await AuthService.refreshToken({
         refreshToken: refreshToken || "",
-      }).then((res) => {
+      }).then(async (res) => {
         prevReq.headers["Authorization"] = `Bearer ${res.token}`;
-        saveTokensOnStorage(res);
+        await saveTokensOnStorage(res);
       });
-
       return api.request(prevReq);
     }
     return Promise.reject(error);
