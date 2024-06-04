@@ -1,5 +1,5 @@
 import { Octicons, FontAwesome6 } from "@expo/vector-icons";
-import { ScrollView } from "react-native-gesture-handler";
+import { FlatList, View, ScrollView, Text } from "react-native";
 
 import { Header } from "./components/Header/header.component";
 import { ModalReportTrash } from "@/components/Modais/ModalReportTrash/modal-report-trash.component";
@@ -7,11 +7,11 @@ import { useHome } from "./home.hook";
 import { Achievements } from "./components/Achievements/achievements.component";
 import { CTA } from "@/components/CTA/cta.component";
 import { CTAList } from "./home.constants";
-import { View } from "react-native";
+
 import { Events } from "./components/Events/events.component";
 
 export const Home: React.FC = () => {
-  const { refs, actions } = useHome();
+  const { refs, states, actions } = useHome();
 
   const renderCtaIcons: Record<string, JSX.Element> = {
     cleaning: <Octicons name="report" size={28} color="#173042FC" />,
@@ -32,8 +32,6 @@ export const Home: React.FC = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          flexGrow: 1,
-          alignItems: "center",
           padding: 20,
         }}
       >
@@ -51,14 +49,31 @@ export const Home: React.FC = () => {
           ))}
         </View>
 
-        <View>
-          <Events
-            name="Evento 1"
-            description="Descrição do evento 1"
-            location="Local do evento 1"
-            startDate="01/01/2021"
-            endDate="02/01/2021"
-            participants={10}
+        <View className="flex flex-col gap-1 mt-6">
+          <Text className="mb-[-10px] text-black-100 font-bold">
+            Eventos que está participando
+          </Text>
+          <FlatList
+            data={states.eventsList}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              gap: 20,
+              flexGrow: 1,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            renderItem={({ item }) => (
+              <Events
+                name={item.name}
+                description={item.description}
+                location={item.location}
+                startDate={item.startDate}
+                endDate={item.endDate}
+                participants={item.users.length}
+              />
+            )}
           />
         </View>
       </ScrollView>
