@@ -12,5 +12,12 @@ export const CTAList = [
     title: 'Ranking',
     description: 'Veja quem está ajudando mais',
     action: 'ranking',
+  },
+  {
+    id: 2,
+    icon: 'events',
+    title: 'Eventos',
+    description: 'Veja os próximos eventos',
+    action: 'events',
   }
 ]

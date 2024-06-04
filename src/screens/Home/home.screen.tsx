@@ -17,11 +17,13 @@ export const Home: React.FC = () => {
   const renderCtaIcons: Record<string, JSX.Element> = {
     cleaning: <Octicons name="report" size={28} color="#173042FC" />,
     ranking: <FontAwesome6 name="ranking-star" size={28} color="#173042FC" />,
+    events: <FontAwesome6 name="calendar" size={28} color="#173042FC" />,
   };
 
   const renderActions: Record<string, () => void> = {
     reportTrash: actions.handleOpenModalReportTrash,
     ranking: () => {},
+    events: () => {},
   };
 
   return (
