@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import StackComponent from "./src/routes/stack.routes";
 import { store } from "@/redux/store";
 import { UserProvider } from "@/providers/user.provider";
+import { PaperProvider } from "react-native-paper";
 
 const queryClient = new QueryClient();
 
@@ -21,8 +22,10 @@ function App(): JSX.Element {
           <Provider store={store}>
             <QueryClientProvider client={queryClient}>
               <UserProvider>
-                <StatusBar style="dark" />
-                <StackComponent />
+                <PaperProvider>
+                  <StatusBar style="dark" />
+                  <StackComponent />
+                </PaperProvider>
               </UserProvider>
             </QueryClientProvider>
           </Provider>
