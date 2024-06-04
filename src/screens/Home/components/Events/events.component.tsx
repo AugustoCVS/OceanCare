@@ -14,7 +14,7 @@ export const Events: React.FC<EventsProps> = ({
   participants,
 }) => {
   return (
-    <View className="w-full flex flex-col rounded-xl bg-gray-100 border border-gray-300 px-4 py-2 mt-4">
+    <View className="w-80 flex flex-col rounded-xl bg-gray-100 border border-gray-300 px-4 py-2 mt-4">
       <Title title={name} />
       <Dates initialDate={startDate} finalDate={endDate} />
       <Divider />
