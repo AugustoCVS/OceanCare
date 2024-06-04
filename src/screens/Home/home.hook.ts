@@ -15,7 +15,7 @@ export const useHome = () => {
     modalReportTrashRef.current?.open();
   };
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["events"],
     queryFn: async () => await EventsService.getEventsByUser({
       userId: user.id,
@@ -27,6 +27,10 @@ export const useHome = () => {
 
   const eventsList = data?.content
 
+  const handleRefetchEvents = (): void => {
+    refetch()
+  }
+
   return {
     refs: {
       modalReportTrashRef,
@@ -37,6 +41,7 @@ export const useHome = () => {
     },
     actions: {
       handleOpenModalReportTrash,
+      handleRefetchEvents,
     },
   };
 }
