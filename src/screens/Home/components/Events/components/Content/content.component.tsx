@@ -9,24 +9,28 @@ export const Content: React.FC<ContentProps> = ({
   const infos = [
     {
       id: 0,
-      content: `${description}`,
+      title: "Descrição",
+      content: description,
     },
     {
       id: 1,
-      content: `Local: ${location}`,
+      title: "Local",
+      content: location,
     },
     {
       id: 2,
-      content: `Participantes: ${participants}`,
+      title: "Participantes",
+      content: participants,
     },
   ];
 
   return (
     <View className="w-full flex flex-col gap-2 text-left">
       {infos.map((info) => (
-        <Text className="text-black text-md flex-1" key={info.id}>
-          {info.content}
-        </Text>
+        <View className="w-full flex flex-col gap-1" key={info.id}>
+          <Text className="text-blue-100 text-md font-bold">{info.title}</Text>
+          <Text className="text-black text-md flex-1">{info.content}</Text>
+        </View>
       ))}
     </View>
   );
