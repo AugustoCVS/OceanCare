@@ -26,7 +26,8 @@ export const UserService = {
     userId: number;
   }) => {
     const res = await api.put<UserProps>(`/users/update/${userId}`, {
-      data
+      name: data.name,
+      email: data.email,
     });
 
     return res.data;
