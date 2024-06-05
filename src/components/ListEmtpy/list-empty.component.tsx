@@ -15,7 +15,7 @@ export const ListEmpty: React.FC<ListEmptyProps> = ({
       <View className="w-full flex flex-col p-4">
         <Skeleton
           key={index}
-          height={isSecondary ? 200 : 150}
+          height={isSecondary ? 200 : 100}
           width="100%"
           borderRadius={8}
         />
