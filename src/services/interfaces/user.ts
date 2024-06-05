@@ -24,3 +24,8 @@ export type ResponseUserProps = {
   pageable: MetaData;
   content: UserProps[];
 }
+
+export type UpdateUserInfoRequest = {
+  name?: string;
+  email?: string;
+}
