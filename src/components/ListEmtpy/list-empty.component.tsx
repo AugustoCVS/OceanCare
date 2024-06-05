@@ -2,11 +2,13 @@ import { Skeleton } from "native-base";
 import { ListEmptyProps } from "./list-empty.types";
 import { View } from "react-native";
 import { EventEmpty } from "./components/EventEmpty/event-empty.component";
+import { UsersEmpty } from "./components/UsersEmpty/users-empty.component";
 
 export const ListEmpty: React.FC<ListEmptyProps> = ({
   loading,
   isSecondary,
   isEventEmpty,
+  isUserEmpty,
 }) => {
   if (loading) {
     return Array.from({ length: 5 }).map((_, index) => (
@@ -22,6 +24,8 @@ export const ListEmpty: React.FC<ListEmptyProps> = ({
   }
 
   if (isEventEmpty) return <EventEmpty />;
+
+  if (isUserEmpty) return <UsersEmpty />;
 
   return null;
 };
