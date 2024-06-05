@@ -25,7 +25,7 @@ export const EventsCard: React.FC<EventsCardProps> = ({
 
     return (
       <Button
-        text="Se inscrever"
+        text="Inscreva-se"
         onPress={handleSubscribeUser}
         className="bg-blue-100 w-72 p-2 rounded-lg flex items-center justify-center text-center"
         textColor="text-white"
