@@ -8,8 +8,8 @@ import { Achievements } from "./components/Achievements/achievements.component";
 import { CTA } from "@/components/CTA/cta.component";
 import { CTAList } from "./home.constants";
 
-import { Events } from "./components/Events/events.component";
 import { ListEmpty } from "@/components/ListEmtpy/list-empty.component";
+import { EventsCard } from "@/components/layout/EventsCard/events-card.component";
 
 export const Home: React.FC = () => {
   const { refs, states, actions } = useHome();
@@ -75,7 +75,7 @@ export const Home: React.FC = () => {
               justifyContent: "center",
             }}
             renderItem={({ item }) => (
-              <Events
+              <EventsCard
                 name={item.name}
                 description={item.description}
                 location={item.location}
