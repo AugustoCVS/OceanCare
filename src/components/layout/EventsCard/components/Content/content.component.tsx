@@ -25,7 +25,7 @@ export const Content: React.FC<ContentProps> = ({
   ];
 
   return (
-    <View className="w-full flex flex-col gap-2 text-left">
+    <View className="w-full flex flex-col gap-2 mb-4">
       {infos.map((info) => (
         <View className="w-full flex flex-col gap-1" key={info.id}>
           <Text className="text-blue-100 text-md font-bold">{info.title}</Text>
