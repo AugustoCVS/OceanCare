@@ -14,12 +14,14 @@ export const useEventsList = ({ refetch }: { refetch: () => void }) => {
 
   const { showToast } = useMessage();
 
+  const userId = user.id;
+
   const handleSubscribeUser = useMutation({
     mutationKey: ["subscribeUser"],
     mutationFn: async ({ eventId }: { eventId: number }) => {
       await EventsService.subscribeUserOnEvent({
         eventId: eventId,
-        userId: user.id,
+        userId: userId,
       });
     },
     onError: () => {
@@ -37,16 +39,14 @@ export const useEventsList = ({ refetch }: { refetch: () => void }) => {
     },
   });
 
-  const shouldButtonBeDisabled = (users: UserProps[]) => {
-    const hasUser = users.some((user) => user.id === user.id);
-
-    return hasUser;
+  const userAlreadySubscribed = ({ users }: { users: UserProps[] }) => {
+    return users.some((user) => user.id === userId);
   };
 
   return {
     actions: {
       handleSubscribeUser,
-      shouldButtonBeDisabled,
+      userAlreadySubscribed,
     },
   };
 };

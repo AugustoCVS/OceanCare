@@ -1,3 +1,5 @@
+import { MetaData } from "./events";
+
 export type UserProps = {
   id: number;
   name: string;
@@ -16,4 +18,9 @@ export enum AchievementsType {
   ThreeThousandReports = "threeThousandReports",
   FiveThousandReports = "fiveThousandReports",
   TenThousandReports = "tenThousandReports",
+}
+
+export type ResponseUserProps = {
+  pageable: MetaData;
+  content: UserProps[];
 }
