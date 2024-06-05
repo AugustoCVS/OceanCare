@@ -9,7 +9,9 @@ export const EventsList: React.FC<EventsListProps> = ({
   isLoading,
   onRefresh,
 }) => {
-  const { actions } = useEventsList();
+  const { actions } = useEventsList({
+    refetch: onRefresh,
+  });
 
   return (
     <FlatList

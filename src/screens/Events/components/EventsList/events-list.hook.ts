@@ -9,7 +9,7 @@ import {
 } from "./events-list.constants";
 import { UserProps } from "@/services/interfaces/user";
 
-export const useEventsList = () => {
+export const useEventsList = ({ refetch }: { refetch: () => void }) => {
   const user = useSelector((state: RootState) => state.user);
 
   const { showToast } = useMessage();
@@ -29,6 +29,7 @@ export const useEventsList = () => {
       });
     },
     onSuccess: () => {
+      refetch();
       showToast({
         title: SUBSCRIBE_SUCCESS_MESSAGE,
         error: false,
