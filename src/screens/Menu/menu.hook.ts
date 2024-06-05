@@ -35,12 +35,31 @@ export const useMenu = () => {
     navigation.navigate("Initial");
   };
 
+  const userInfo = [
+    {
+      id: 0,
+      label: "Nome",
+      value: user?.name,
+    },
+    {
+      id: 1,
+      label: "Email",
+      value: user?.email,
+    },
+    {
+      id: 2,
+      label: "Pontos",
+      value: user.reportedTrash.toString(),
+    }
+  ]
+
   return {
     refs: {
       modalUpdateRef,
     },
     states: {
       user,
+      userInfo,
     },
     actions: {
       handleOpenModalUpdate,
