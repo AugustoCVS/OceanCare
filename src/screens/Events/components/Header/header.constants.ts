@@ -1,0 +1,1 @@
+export const PLACEHOLDER = "Pesquisar eventos";
