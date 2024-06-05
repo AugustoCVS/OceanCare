@@ -53,7 +53,7 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ modalRef }) => {
         <Button
           isFirstStyle
           text="Confirmar"
-          disabled={states.isPending}
+          loading={states.isPending}
           onPress={handleSubmit(actions.handleLogin)}
         />
       </View>
