@@ -1,0 +1,1 @@
+export const DEVELOPMENT_FEATURE = "Funcionalidade em desenvolvimento";
