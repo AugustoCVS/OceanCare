@@ -5,7 +5,7 @@ export const Title: React.FC<TitleProps> = ({ reportedTrash, title }) => {
   return (
     <View className="w-full flex flex-row items-center justify-between">
       <Text className="text-lg font-bold">{title}</Text>
-      <Text className="text-sm text-gray-500">
+      <Text className="text-sm text-gray-600">
         Lixo reportado: {reportedTrash}
       </Text>
     </View>
