@@ -3,7 +3,8 @@ import { useMenu } from "./menu.hook";
 import { Header } from "./components/Header/header.component";
 import { ButtonSection } from "./components/ButtonSection/button-section.component";
 import { ModalUpdateInfo } from "./components/ModalUpdateInfo/modal-update-info.component";
-import { MenuItem } from "./components/MenuItem/menu-item.component";
+import { Item } from "./components/Item/item.component";
+import { AchievementsList } from "@/components/AchievementsList/achievements-list.component";
 
 export const Menu: React.FC = () => {
   const { refs, states, actions } = useMenu();
@@ -17,7 +18,13 @@ export const Menu: React.FC = () => {
             handleChangePhoto={actions.handleChangePhoto}
           />
 
-          <View className="border-t border-gray-300 pt-4"></View>
+          <View className="border-t border-gray-300 pt-4">
+            {states.userInfo.map((info) => (
+              <Item key={info.id} label={info.label} value={info.value} />
+            ))}
+          </View>
+
+          <AchievementsList achievements={states.user?.achievements || []} />
         </View>
         <ButtonSection
           handleUpdateInfo={actions.handleOpenModalUpdate}
