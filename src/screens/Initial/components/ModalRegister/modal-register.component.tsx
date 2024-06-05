@@ -83,7 +83,7 @@ export const ModalRegister: React.FC<ModalRegisterProps> = ({ modalRef }) => {
           isFirstStyle
           text="Registrar"
           onPress={handleSubmit(actions.handleRegister)}
-          disabled={states.isPending}
+          loading={states.isPending}
         />
       </View>
     </Modal>

@@ -94,7 +94,7 @@ export const ModalReportTrash: React.FC<ModalReportTrashProps> = ({
           isFirstStyle
           text="Registrar"
           onPress={handleSubmit(actions.handleRegisterReport)}
-          disabled={states.isPending}
+          loading={states.isPending}
         />
       </View>
     </Modal>

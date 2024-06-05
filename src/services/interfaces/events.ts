@@ -31,3 +31,8 @@ export type SubscribeUserOnEventProps = {
   userId: number;
 };
 
+export type RequestGetEvents = {
+  page: number;
+  size: number;
+  name?: string;
+};
