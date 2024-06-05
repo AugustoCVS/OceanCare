@@ -18,19 +18,10 @@ export const EventsCard: React.FC<EventsCardProps> = ({
   loading,
   handleSubscribeUser,
 }) => {
+  if (userAlreadySubscribed) return null;
+
   const renderButton = () => {
     if (!isScreen) return null;
-
-    if (userAlreadySubscribed) {
-      return (
-        <Button
-          text="Inscrito"
-          className="bg-gray-600 w-72 p-2 rounded-lg flex items-center justify-center text-center"
-          textColor="text-white"
-          disabled
-        />
-      );
-    }
 
     return (
       <Button
