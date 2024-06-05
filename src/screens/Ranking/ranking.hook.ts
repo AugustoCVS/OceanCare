@@ -1,7 +1,7 @@
 import { TabTypes } from "@/routes/tab.routes";
 import { UserService } from "@/services/user";
 import { useMessage } from "@/utils/message";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Modalize } from "react-native-modalize";
@@ -31,12 +31,15 @@ export const useRanking = () => {
         });
       }),
   });
-
   const userList = data?.content || [];
 
   const handleRefetch = (): void => {
     refetch();
-  }
+  };
+  
+  useFocusEffect(() => {
+    refetch()
+  })
 
   return {
     refs: {

@@ -3,6 +3,7 @@ import { useMessage } from "@/utils/message";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { ERROR_MESSAGE } from "./events.constants";
+import { useFocusEffect } from "@react-navigation/native";
 
 export const useEvents = () => {
   const { showToast } = useMessage();
@@ -33,6 +34,10 @@ export const useEvents = () => {
   const handleRefetch = (): void => {
     refetch();
   };
+
+  useFocusEffect(() => {
+    refetch()
+  })
 
   return {
     states: {

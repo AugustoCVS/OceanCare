@@ -2,7 +2,7 @@ import { RootState } from "@/redux/store";
 import { TabTypes } from "@/routes/tab.routes";
 import { EventsService } from "@/services/events";
 import { EventsProps } from "@/services/interfaces/events";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Modalize } from "react-native-modalize";
@@ -38,6 +38,14 @@ export const useHome = () => {
     navigation.navigate("Events")
   }
 
+  const handleNavigateToRanking = () => {
+    navigation.navigate("Ranking")
+  }
+
+  useFocusEffect(() => {
+    refetch()
+  })
+
   return {
     refs: {
       modalReportTrashRef,
@@ -49,7 +57,8 @@ export const useHome = () => {
     actions: {
       handleOpenModalReportTrash,
       handleRefetchEvents,
-      handleNavigateToEvents
+      handleNavigateToEvents,
+      handleNavigateToRanking
     },
   };
 }

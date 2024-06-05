@@ -22,7 +22,7 @@ export const Home: React.FC = () => {
 
   const renderActions: Record<string, () => void> = {
     reportTrash: actions.handleOpenModalReportTrash,
-    ranking: () => {},
+    ranking: actions.handleNavigateToRanking,
     events: actions.handleNavigateToEvents,
   };
 
