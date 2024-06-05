@@ -7,11 +7,11 @@ import { Button } from "@/components/Button/button.component";
 import { HeaderProps } from "./header.types";
 
 export const Header: React.FC<HeaderProps> = ({ handleOpenModal }) => {
-  const { states, actions } = useHeader();
+  const { states } = useHeader();
 
   return (
     <View className="w-full h-40 bg-blue-100 flex flex-row items-center justify-between px-4 pt-8">
-      <Logo width={80} height={80} onPress={actions.handleLogout} />
+      <Logo width={80} height={80} />
       <Title text={states.user?.name} />
       <Button
         text="Reportar"
