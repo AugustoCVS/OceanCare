@@ -16,7 +16,7 @@ export const useEvents = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["events", searchEvent],
     queryFn: async () =>
-      EventsService.getAllEvents({
+      await EventsService.getAllEvents({
         page: 0,
         size: 20,
         name: searchEvent,
