@@ -2,18 +2,20 @@ import { FlatList, RefreshControl } from "react-native";
 import { EventsListProps } from "./events-list.types";
 import { EventsCard } from "@/components/layout/EventsCard/events-card.component";
 import { ListEmpty } from "@/components/ListEmtpy/list-empty.component";
+import { useEventsList } from "./events-list.hook";
 
 export const EventsList: React.FC<EventsListProps> = ({
   events,
   isLoading,
-  handleSubscribeUserOnEvent,
   onRefresh,
 }) => {
+  const { actions } = useEventsList();
+
   return (
     <FlatList
       data={events}
       keyExtractor={(item) => item.id.toString()}
-      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
           refreshing={isLoading}
@@ -22,10 +24,9 @@ export const EventsList: React.FC<EventsListProps> = ({
         />
       }
       contentContainerStyle={{
-        gap: 20,
-        flexGrow: 1,
         alignItems: "center",
-        justifyContent: "center",
+        paddingBottom: 16,
+        minHeight: "100%",
       }}
       renderItem={({ item }) => (
         <EventsCard
@@ -35,6 +36,12 @@ export const EventsList: React.FC<EventsListProps> = ({
           startDate={item.startDate}
           endDate={item.endDate}
           participants={item.users.length}
+          handleSubscribeUser={() => {
+            actions.handleSubscribeUser.mutate({ eventId: item.id });
+          }}
+          userAlreadySubscribed={actions.shouldButtonBeDisabled(item.users)}
+          isScreen
+          loading={actions.handleSubscribeUser.isPending}
         />
       )}
       ListEmptyComponent={
