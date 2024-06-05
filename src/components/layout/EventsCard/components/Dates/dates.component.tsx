@@ -1,17 +1,18 @@
 import { View, Text } from "react-native";
 import { DateProps } from "./dates.types";
+import { dateFormatter } from "@/utils/formaters";
 
 export const Dates: React.FC<DateProps> = ({ initialDate, finalDate }) => {
   const infos = [
     {
       id: 0,
       title: "Início",
-      date: initialDate,
+      date: dateFormatter.format(new Date(initialDate)),
     },
     {
       id: 1,
       title: "Fim",
-      date: finalDate,
+      date: dateFormatter.format(new Date(finalDate)),
     },
   ];
 
