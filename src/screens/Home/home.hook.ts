@@ -1,6 +1,8 @@
 import { RootState } from "@/redux/store";
+import { TabTypes } from "@/routes/tab.routes";
 import { EventsService } from "@/services/events";
 import { EventsProps } from "@/services/interfaces/events";
+import { useNavigation } from "@react-navigation/native";
 import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
 import { Modalize } from "react-native-modalize";
@@ -8,6 +10,8 @@ import { useSelector } from "react-redux";
 
 export const useHome = () => {
   const user = useSelector((state: RootState) => state.user);
+
+  const navigation = useNavigation<TabTypes>();
 
   const modalReportTrashRef = useRef<Modalize>(null);
 
@@ -30,6 +34,10 @@ export const useHome = () => {
     refetch()
   }
 
+  const handleNavigateToEvents = () => {
+    navigation.navigate("Events")
+  }
+
   return {
     refs: {
       modalReportTrashRef,
@@ -41,6 +49,7 @@ export const useHome = () => {
     actions: {
       handleOpenModalReportTrash,
       handleRefetchEvents,
+      handleNavigateToEvents
     },
   };
 }
