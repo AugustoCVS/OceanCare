@@ -41,7 +41,9 @@ export const EventsList: React.FC<EventsListProps> = ({
           handleSubscribeUser={() => {
             actions.handleSubscribeUser.mutate({ eventId: item.id });
           }}
-          userAlreadySubscribed={actions.shouldButtonBeDisabled(item.users)}
+          userAlreadySubscribed={actions.userAlreadySubscribed({
+            users: item.users,
+          })}
           isScreen
           loading={actions.handleSubscribeUser.isPending}
         />
