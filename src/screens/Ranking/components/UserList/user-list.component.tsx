@@ -26,9 +26,7 @@ export const UserList: React.FC<UserListProps> = ({
         minHeight: "100%",
       }}
       renderItem={({ item }) => <UserCard {...item} />}
-      ListEmptyComponent={
-        <ListEmpty loading={isLoading} isEventEmpty isSecondary />
-      }
+      ListEmptyComponent={<ListEmpty loading={isLoading} isUserEmpty />}
     />
   );
 };
