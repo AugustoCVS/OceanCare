@@ -7,4 +7,6 @@ export type ButtonProps = TouchableOpacityProps & {
   isFirstStyle?: boolean;
   disabled?: boolean;
   text?: string;
+  textColor?: string;
+  loading?: boolean;
 };
