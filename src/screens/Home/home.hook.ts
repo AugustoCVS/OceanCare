@@ -16,13 +16,12 @@ export const useHome = () => {
   };
 
   const { data, isLoading, refetch } = useQuery({
-    queryKey: ["events"],
+    queryKey: ["events", user.id],
     queryFn: async () => await EventsService.getEventsByUser({
       userId: user.id,
       page: 0,
       size: 20,
      }),
-    refetchOnWindowFocus: false,
   })
 
   const eventsList = data?.content
