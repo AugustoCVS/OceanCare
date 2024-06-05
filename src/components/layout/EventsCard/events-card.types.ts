@@ -5,4 +5,8 @@ export type EventsCardProps = {
   startDate: string;
   endDate: string;
   participants: number;
+  isScreen?: boolean;
+  handleSubscribeUser?: () => void;
+  userAlreadySubscribed?: boolean;
+  loading?: boolean;
 }
