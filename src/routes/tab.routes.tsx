@@ -1,13 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { Home } from "../screens/Home/home.screen";
+import { Events } from "@/screens/Events/events.screen";
 
 const Tab = createBottomTabNavigator();
 
 export type TabNavigation = {
   Home: undefined;
+  Events: undefined;
 };
 
 export type TabTypes = NativeStackNavigationProp<TabNavigation>;
@@ -19,8 +22,8 @@ export default function TabRoutes() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#173042FC",
-        tabBarInactiveTintColor: "#D2F6FF",
+        tabBarActiveTintColor: "#A6E3FF",
+        tabBarInactiveTintColor: "#173042FC",
         tabBarLabelStyle: {
           fontSize: 14,
         },
@@ -41,6 +44,17 @@ export default function TabRoutes() {
           tabBarLabel: "Inicio",
         }}
         component={Home}
+      />
+
+      <Tab.Screen
+        name="Events"
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="event" size={20} color={color} />
+          ),
+          tabBarLabel: "Eventos",
+        }}
+        component={Events}
       />
     </Tab.Navigator>
   );
