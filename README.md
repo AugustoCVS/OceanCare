@@ -1,5 +1,7 @@
 # OceanCare
 
+O aplicativo OceanCare visa promover a conscientização e ação direta sobre a conservação dos oceanos. Através de uma plataforma digital interativa, o aplicativo pretende envolver a comunidade em projetos de limpeza e conservação, e incentivar comportamentos ecologicamente responsáveis por meio de um sistema de recompensas e ranking.
+
 
 ## Grupo: 
 
@@ -8,11 +10,6 @@
 * Pedro Fontanez Bravo - RM97366
 * Felipe Rios Miranda - RM96726
 * Augusto de Carvalho Vertolis Santana - RM96518
-
-
-## Escopo do Projeto:
-
-O aplicativo OceanCare visa promover a conscientização e ação direta sobre a conservação dos oceanos. Através de uma plataforma digital interativa, o aplicativo pretende envolver a comunidade em projetos de limpeza e conservação, e incentivar comportamentos ecologicamente responsáveis por meio de um sistema de recompensas e ranking.
 
 ## Principais Funcionalidades:
 
@@ -36,3 +33,6 @@ O usuário poderá acompanhar um ranking com todas as pessoas que estão cadastr
   
  https://backend-ocean-care.onrender.com/swagger-ui/index.html
 
+* Vídeo de apresentação do projeto 
+
+https://www.youtube.com/watch?v=YSh0x_xMqDU&t=7s
