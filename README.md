@@ -32,5 +32,7 @@ O usuário poderá acompanhar um ranking com todas as pessoas que estão cadastr
 
 ## Backend
 
-* Lindk do deploy com swagger caso queira realizar algum teste: https://backend-ocean-care.onrender.com/swagger-ui/index.html
+* Link da documentação do backend com swagger, mostrando todas as rotas, como as requisições devem ser feitas e o objeto de retorno de cada requisição
+  
+ https://backend-ocean-care.onrender.com/swagger-ui/index.html
 
