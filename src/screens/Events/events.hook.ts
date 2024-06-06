@@ -15,18 +15,22 @@ export const useEvents = () => {
   };
 
   const { data, isLoading, refetch } = useQuery({
-    queryKey: ["events", searchEvent],
-    queryFn: async () =>
-      await EventsService.getAllEvents({
+    queryKey: ["events"],
+    queryFn: async () => {
+      const res = await EventsService.getAllEvents({
         page: 0,
         size: 20,
         name: searchEvent,
-      }).catch(() => {
+      }).catch((err) => {
+        console.log(err)
         showToast({
           title: ERROR_MESSAGE,
           error: true,
         });
-      }),
+      });
+
+      return res;
+    },
   });
 
   const eventsList = data?.content || [];
@@ -36,8 +40,8 @@ export const useEvents = () => {
   };
 
   useFocusEffect(() => {
-    refetch()
-  })
+    refetch();
+  });
 
   return {
     states: {

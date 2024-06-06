@@ -25,8 +25,8 @@ export const EventsService = {
     return res.data;
   },
 
-  getAllEvents: async ({page, size, name}: RequestGetEvents) => {
-      const res = await api.get<GetEventsResponse>(`/events/list?page=${page}&size=${size}&name=${name}`);
+  getAllEvents: async ({page, size, name = ""}: RequestGetEvents) => {
+      const res = await api.get<GetEventsResponse>(`/events/list?page=${page}&size=${size}`);
 
       return res.data;
   }
