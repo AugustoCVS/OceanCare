@@ -4,7 +4,7 @@ import { requestInterceptor } from "./interceptors/request-interceptor";
 import { AuthService } from "./auth";
 import { getRefreshToken, saveTokensOnStorage } from "@/utils/auth";
 
-const BASE_URL = "http://172.20.10.2:8080";
+const BASE_URL = "https://backend-ocean-care.onrender.com";
 
 const api = axios.create({
   baseURL: BASE_URL,

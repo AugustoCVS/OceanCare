@@ -2,7 +2,7 @@ import axios from "axios";
 import { responseInterceptor } from "./interceptors/response-interceptor";
 import { errorInterceptor } from "./interceptors/error-interceptor";
 
-const BASE_URL = "http://172.20.10.2:8080";
+const BASE_URL = "https://backend-ocean-care.onrender.com";
 
 const apiAuth = axios.create({
   baseURL: BASE_URL,
